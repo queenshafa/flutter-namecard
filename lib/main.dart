@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_social_button/flutter_social_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -236,32 +237,112 @@ class HomePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(12),
-                            width: 150,
-                            height: 300,
-                            decoration: const BoxDecoration(
-                                color: Color(0xff5D0093),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                            child: const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Social',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 20),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  'Cars, cars, cars, cars, F1, Max Verstappen, Lewis Hamilton',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 12),
-                                )
-                              ],
-                            ),
-                          ),
+                              padding: const EdgeInsets.all(12),
+                              width: 150,
+                              height: 300,
+                              decoration: const BoxDecoration(
+                                  color: Color(0xff5D0093),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Socials",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 12),
+
+                                  // Instagram
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      FlutterSocialButton(
+                                        buttonType: ButtonType.instagram,
+                                        onTap: () {},
+                                        mini: true,
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: Text(
+                                          '@queenshfran',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 8),
+
+                                  // TikTok (custom)
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      FlutterSocialButton(
+                                        buttonType: ButtonType
+                                            .youtube, // TikTok icon not available, use alt
+                                        onTap: () {},
+                                        mini: true,
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: Text(
+                                          '@queenshafa\nrania',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 8),
+
+                                  // GitHub
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      FlutterSocialButton(
+                                        buttonType: ButtonType.github,
+                                        onTap: () {},
+                                        mini: true,
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: Text(
+                                          'queenshafa',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 8),
+
+                                  // WhatsApp
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      FlutterSocialButton(
+                                        buttonType: ButtonType.whatsapp,
+                                        onTap: () {},
+                                        mini:
+                                            true, // <-- if this is available in your version!
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: Text(
+                                          '0853133221911',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )),
                           const SizedBox(
                             width: 8,
                           ),
@@ -330,9 +411,15 @@ class HomePage extends StatelessWidget {
                               const SizedBox(
                                 height: 8,
                               ),
-                              Image.asset(
-                                'assets/images/decoration.png',
-                                width: 190,
+                              ClipRRect(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(8)),
+                                child: Image.asset(
+                                  'assets/images/decoration.png',
+                                  width: 190,
+                                  height: 190,
+                                  fit: BoxFit.cover,
+                                ),
                               )
                             ],
                           ),
